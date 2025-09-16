@@ -67,3 +67,5 @@ jobs:
           containerAppEnvironment: sinocaenv
           containerAppName: sinocapp123
           targetPort: 8080
+          environmentVariables: |
+            API_URL=https://sinoappolama.internal.blackcliff-b26db682.westeurope.azurecontainerapps.io
