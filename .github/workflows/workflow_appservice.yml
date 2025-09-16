@@ -35,9 +35,10 @@ jobs:
           az acr login --name sinoacr --username ${{ secrets.ACR_admin }} --password ${{ secrets.ACR_PASSWORD }} &&
           docker build -t sinoacr.azurecr.io/microhackapp:1 -f Dockerfile . &&
           docker push sinoacr.azurecr.io/microhackapp:1
+          
       - name: Get Latest Container Image Tag
-          id: get_tag
-          run: |
+        id: get_tag
+        run: |
             TAG=$(az acr repository show-tags --name microhackregistry --repository microhackapp --orderby time_desc --output tsv --detail | head -n 1 | awk '{print $4}')
             NUMERIC_TAG=$(echo "$TAG" | grep -oE '[0-9]+')
             INCREMENTED_TAG=$((NUMERIC_TAG + 1))
