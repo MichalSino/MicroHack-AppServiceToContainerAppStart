@@ -29,9 +29,6 @@ jobs:
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
-
-  deploy:
-    steps:
       - name: Build and Push Image
           run: |
             az acr login --name microhackregistry --username ${{ secrets.ACR_admin }} --password ${{ secrets.ACR_PASSWORD }} &&
