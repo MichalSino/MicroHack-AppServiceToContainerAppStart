@@ -29,6 +29,8 @@ jobs:
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
+      - name: Azure login
+        run: az acr login --name sinoacr --username ${{ secrets.SERVICE_PRINCIPAL }} --password ${{ secrets.SERVICE_PRINCIPAL_PASSWORD }}
 
   deploy:
     name: Deploy Solution
