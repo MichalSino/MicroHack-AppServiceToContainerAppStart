@@ -45,7 +45,7 @@ jobs:
           name: .net-app
           
       - name: Azure login
-        run: az acr login --name sinoacr --username ${{ secrets.SERVICE_PRINCIPAL }} --password ${{ secrets.SERVICE_PRINCIPAL_PASSWORD }}
+        run: az acr login --name sinoacr --username ${{ secrets.ACR_admin }} --password ${{ secrets.ACR_password }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
